@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CollabBoard</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div id="join-screen">
+    <div class="join-wrapper">
+      <div class="join-left">
+        <div class="brand"><div class="brand-icon">⬡</div><span class="brand-name">CollabBoard</span></div>
+        <h1>A canvas for<br/><span class="accent">teams that move fast.</span></h1>
+        <p class="tagline">Real-time collaborative whiteboard. No signup. No friction. Just draw.</p>
+        <div class="feature-list">
+          <div class="feature-item">⚡ Live cursors & drawing</div>
+          <div class="feature-item">✨ Cursor trails & laser pointer</div>
+          <div class="feature-item">🎉 Double-click for confetti</div>
+          <div class="feature-item">🎨 Shapes, text, sticky notes</div>
+          <div class="feature-item">💾 Export as PNG</div>
+        </div>
+      </div>
+      <div class="join-right">
+        <div class="join-box">
+          <p class="join-label">GET STARTED</p>
+          <input type="text" id="username-input" placeholder="Your name" maxlength="20" autocomplete="off"/>
+          <input type="text" id="room-input" placeholder="Room code (e.g. dev-standup)" maxlength="30" autocomplete="off"/>
+          <button onclick="joinBoard()"><span>Enter Board</span><span class="btn-arrow">→</span></button>
+          <p class="join-hint">No account needed. Share the room link with teammates.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="board-screen" class="hidden">
+    <div id="toolbar">
+      <div class="toolbar-left">
+        <div class="brand-small">⬡ CollabBoard</div>
+        <div class="divider"></div>
+        <span id="room-label"></span>
+      </div>
+
+      <div class="toolbar-center">
+        <div class="tool-group">
+          <button onclick="setTool('pen')" id="btn-pen" class="tool-btn active-tool" title="Pen (P)"><span class="tool-icon">✏️</span><span class="tool-label">Pen</span></button>
+          <button onclick="setTool('eraser')" id="btn-eraser" class="tool-btn" title="Eraser (E)"><span class="tool-icon">🧹</span><span class="tool-label">Eraser</span></button>
+          <button onclick="setTool('text')" id="btn-text" class="tool-btn" title="Text (T)"><span class="tool-icon">T</span><span class="tool-label">Text</span></button>
+          <button onclick="setTool('fill')" id="btn-fill" class="tool-btn" title="Fill (F)"><span class="tool-icon">🪣</span><span class="tool-label">Fill</span></button>
+        </div>
+        <div class="tool-divider"></div>
+        <div class="tool-group">
+          <button onclick="setTool('rect')" id="btn-rect" class="tool-btn" title="Rectangle (R)"><span class="tool-icon">▭</span><span class="tool-label">Rect</span></button>
+          <button onclick="setTool('circle')" id="btn-circle" class="tool-btn" title="Circle (C)"><span class="tool-icon">○</span><span class="tool-label">Circle</span></button>
+          <button onclick="setTool('line')" id="btn-line" class="tool-btn" title="Line (L)"><span class="tool-icon">╱</span><span class="tool-label">Line</span></button>
+          <button onclick="setTool('arrow')" id="btn-arrow" class="tool-btn" title="Arrow (A)"><span class="tool-icon">→</span><span class="tool-label">Arrow</span></button>
+          <button onclick="addStickyNote()" class="tool-btn" title="Sticky Note"><span class="tool-icon">📝</span><span class="tool-label">Note</span></button>
+        </div>
+        <div class="tool-divider"></div>
+        <!-- Effects -->
+        <div class="tool-group">
+          <button onclick="toggleLaser()" id="btn-laser" class="tool-btn laser-btn" title="Laser Pointer (Space)"><span class="tool-icon">🔴</span><span class="tool-label">Laser</span></button>
+          <button onclick="spawnConfetti(window.innerWidth/2, window.innerHeight/2)" class="tool-btn confetti-btn" title="Confetti!"><span class="tool-icon">🎉</span><span class="tool-label">Party</span></button>
+        </div>
+        <div class="tool-divider"></div>
+        <div class="tool-group">
+          <div class="color-wrap"><input type="color" id="color-picker" value="#e2e8f0"/></div>
+          <input type="range" id="size-picker" min="1" max="40" value="4" class="size-range"/>
+          <span id="size-label" class="size-label">4px</span>
+        </div>
+      </div>
+
+      <div class="toolbar-right">
+        <button onclick="undo()" class="action-btn" title="Ctrl+Z">↩ Undo</button>
+        <button onclick="redo()" class="action-btn" title="Ctrl+Y">↪ Redo</button>
+        <div class="tool-divider"></div>
+        <button onclick="zoomIn()" class="action-btn zoom-btn">+</button>
+        <span id="zoom-label" class="zoom-label">100%</span>
+        <button onclick="zoomOut()" class="action-btn zoom-btn">−</button>
+        <div class="tool-divider"></div>
+        <button onclick="copyRoomLink()" class="action-btn" id="copy-btn">🔗 Link</button>
+        <button onclick="clearCanvas()" class="action-btn">Clear</button>
+        <button onclick="exportPNG()" class="action-btn accent-btn">Export</button>
+        <div class="user-chip" id="user-label"></div>
+      </div>
+    </div>
+
+    <div id="canvas-container">
+      <canvas id="whiteboard"></canvas>
+      <textarea id="text-input" class="hidden" placeholder="Type here..."></textarea>
+    </div>
+
+    <div id="sticky-layer"></div>
+    <div id="cursors"></div>
+    <div id="toast"></div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
