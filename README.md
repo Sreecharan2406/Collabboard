@@ -152,8 +152,8 @@ CollabBoard is deployed on **Render**. To deploy your own instance:
 
 **Sreecharan R** — built as a portfolio project to demonstrate real-time full-stack development.
 
-- GitHub: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
-- LinkedIn: [your-linkedin](https://linkedin.com/in/your-linkedin)
+- GitHub: https://github.com/Sreecharan2406
+- LinkedIn: https://www.linkedin.com/in/sreecharan-r-b593b1319/
 
 ---
 
