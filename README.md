@@ -15,7 +15,7 @@
 
 ---
 
-## ✨ What is CollabBoard?
+##  What is CollabBoard?
 
 CollabBoard is a **real-time multiplayer whiteboard** where teams can draw, brainstorm, and collaborate — all in the same canvas, at the same time. No accounts. No installs. Just share a link and start drawing together.
 
@@ -23,9 +23,9 @@ Think Miro or Figma's multiplayer canvas — built from scratch with Node.js and
 
 ---
 
-## 🚀 Features
+##  Features
 
-### 🎨 Drawing Tools
+###  Drawing Tools
 - **Pen** — freehand drawing with smooth strokes
 - **Eraser** — erase any part of the canvas
 - **Shapes** — rectangle, circle, line, arrow, triangle
@@ -33,18 +33,18 @@ Think Miro or Figma's multiplayer canvas — built from scratch with Node.js and
 - **Fill Bucket** — flood fill any region with color
 - **Sticky Notes** — colorful draggable notes that float over the canvas
 
-### ⚡ Real-Time Collaboration
+###  Real-Time Collaboration
 - **Live drawing sync** — see others draw stroke by stroke in real time
 - **Live cursors** — see every collaborator's cursor with their name
 - **Cursor trails** — each user leaves a glowing colored trail
 - **Shareable room links** — share a URL, anyone joins instantly
 
-### 🎉 Fun Effects
+###  Fun Effects
 - **🔴 Laser Pointer** — hold `Space` to activate a glowing red laser dot visible to all users
 - **🎊 Confetti Burst** — double-click anywhere to explode confetti that everyone sees
 - **Click Ripples** — visual ripple effects on interaction
 
-### 🛠 Power Features
+###  Power Features
 - **Undo / Redo** — full history with `Ctrl+Z` / `Ctrl+Y`
 - **Zoom** — zoom in and out of the canvas
 - **Export PNG** — download your board as an image
@@ -52,7 +52,7 @@ Think Miro or Figma's multiplayer canvas — built from scratch with Node.js and
 
 ---
 
-## 🖥 Tech Stack
+##  Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -66,7 +66,7 @@ No frontend frameworks. No databases. Pure, fast, lightweight.
 
 ---
 
-## 🏁 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Node.js 18+
@@ -92,7 +92,7 @@ To test multiplayer, open two tabs, enter the same room code, and draw!
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 collabboard/
@@ -106,7 +106,7 @@ collabboard/
 
 ---
 
-## 🎮 How to Use
+##  How to Use
 
 1. **Enter your name** and a **room code** on the join screen
 2. **Share the room link** with teammates — they auto-join
@@ -117,7 +117,7 @@ collabboard/
 
 ---
 
-## ⌨️ Keyboard Shortcuts
+##  Keyboard Shortcuts
 
 | Key | Action |
 |---|---|
@@ -135,7 +135,7 @@ collabboard/
 
 ---
 
-## 🚀 Deployment
+##  Deployment
 
 CollabBoard is deployed on **Render**. To deploy your own instance:
 
@@ -148,7 +148,7 @@ CollabBoard is deployed on **Render**. To deploy your own instance:
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Sreecharan R** — built as a portfolio project to demonstrate real-time full-stack development.
 
